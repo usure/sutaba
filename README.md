@@ -9,5 +9,7 @@ SETUP
 prerequisites:
 You need php5+, mysql server, mysqli, php5-gd
 
-```sudo apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql	
+'''
+sudo apt-get install mysql-server libapache2-mod-auth-mysql php5-mysql	
+
 ```
