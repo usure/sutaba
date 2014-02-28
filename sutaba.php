@@ -6,7 +6,7 @@
 date_default_timezone_set('America/New_York');
 $cfg = array (
     'board1' => array (
-        'syspath'          => '/srv/http/org/sutaba/'
+        'syspath'          => '/var/www/',
         'thumbpath'        => 'thumb/',
         'imgpath'          => 'src/',
         'webpath'          => '/', // relative path from the domain; i.e.: http://www.example.com/sutaba/ means this variable would be 'sutaba/'
@@ -16,8 +16,8 @@ $cfg = array (
             'password' => '',
             'database' => ''
         ),
-        'title'            => '&#12473;&#12479;&#12496; &#12481;&#12515;&#12493;&#12523; / sutaba channel',
-        'desc'             => 'intimate discussion on a broad array of topics',
+        'title'            => '/boardname/',
+        'desc'             => ' Board descrition',
         'img'              => array (
             'enabled' => true, //images enabled on this board?
             'max_width' => 250,
@@ -34,10 +34,10 @@ $cfg = array (
         'comment_min'      => 5, // minumum comment length
         'subject_max'      => 100, // maximum subject length (BE SURE TO CHANGE THE DATABASE!)
         'comment_max'      => 2500, // maximum comment length
-        'image_required'   => true, // image required to post a new topic?
+        'image_required'   => false, // image required to post a new topic?
         'access'           => array (
             'admin' => array ( //admin tripcodes
-                'LLVegDyAFo',
+                'WuvOsumF7w',
                 '8pjmkGgGGE' //webs
             ),
             'mod' => array ( //mod tripcodes
@@ -45,7 +45,7 @@ $cfg = array (
         )
     )/*,
     'cc' => array (
-        'syspath'          => '/srv/http/org/sutaba/',
+        'syspath'          => '/var/www/',
         'thumbpath'        => 'thumb/',
         'imgpath'          => 'src/',
         'webpath'          => '/', // relative path from the domain; i.e.: http://www.example.com/sutaba/ means this variable would be 'sutaba/'
@@ -777,7 +777,7 @@ class Sutaba {
             $thumb_width = $old_width;
             $thumb_height = $old_height;
         }
-        $destination = imagecreatetruecolor($thumb_width,$thumb_height);
+        $destination = imagecreatetruecolor($thumb_width, $thumb_height);
         imagecopyresampled($destination,$source,0,0,0,0,$thumb_width,$thumb_height,$old_width,$old_height);
         switch($extension){
             case 'png':
@@ -1071,7 +1071,7 @@ class HTML {
         }
         if($common->is_staff())
             $menu_items[] = '[ <a href=?action=manage>manage</a> ]';
-        $menu_items[] = '[ <a href=/releases/>releases</a> ]';
+        $menu_items[] = '[ <a href=../>home</a> ]';
         return (0 < count($menu_items) ? implode(' ',$menu_items) : '');
     }
 
